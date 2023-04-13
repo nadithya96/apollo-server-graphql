@@ -4,29 +4,8 @@ const typeDefs = gql`
 
      type Query {
           "Get patient array"
-          patients: [Patient!]!
+          providers: [Provider!]!
         }
-
-    "Patient can have more than one prescription prescribed by different providers"
-    type Patient {
-      id: ID!
-      lastName: String!
-      firstName: String!
-      emailId: String!
-      state: String!
-      prescriptions: [Prescription]
-    }
-
-    "Prescription associated with patient"
-    type Prescription {
-      id: ID!
-      name: String!
-      prescribedDate: String
-      state: State!
-      quantity: Int
-      daySuppy: Int
-      provider: Provider
-    }
 
     "Provider information"
     type Provider{
@@ -34,7 +13,28 @@ const typeDefs = gql`
         lastName: String!
         npi: String!
         state: String!
+        patients : [Patient]
     }
+
+     "Patient can have more than one prescription prescribed by different providers"
+        type Patient {
+          id: ID!
+          lastName: String!
+          firstName: String!
+          emailId: String!
+          state: String!
+          prescriptions: [Prescription]
+        }
+
+        "Prescription associated with patient"
+        type Prescription {
+          id: ID!
+          name: String!
+          prescribedDate: String
+          state: State!
+          quantity: Int
+          daySuppy: Int
+        }
 
     "Prescription state"
     enum State{

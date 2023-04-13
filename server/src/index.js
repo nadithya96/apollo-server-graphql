@@ -7,14 +7,20 @@ const typeDefs = require("./schema");
 const mocks = {
 
     Query: () => ({
-    patients: () => [...new Array(3)],
+    providers: () => [...new Array(3)],
   }),
-  Patient: () => ({
-    id: () => "1",
-    lastName: () => "data",
-    firstName: () => "test",
-    emailId: () => "testdata@gmail.com",
-    state: () => "California",
+  Provider: () => ({
+        firstName: () => "John",
+        lastName: () => "Doe",
+        npi: () => "65364563546",
+        state: () => "California",
+  }),
+//  Patient: () => ({
+//    id: () => "1",
+//    lastName: () => "data",
+//    firstName: () => "test",
+//    emailId: () => "testdata@gmail.com",
+//    state: () => "California",
 //    prescriptions: () => {
 //      return ({
 //        id: () => "rx-001",
@@ -33,7 +39,7 @@ const mocks = {
 //        },
 //      });
 //    },
-  }),
+//  }),
 };
 
 
