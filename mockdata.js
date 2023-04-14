@@ -79,5 +79,5 @@ const ProviderList = [
 
 
   
-  module.exports = { ProviderList,patientList };
+  module.exports = { ProviderList, patientList };
   
