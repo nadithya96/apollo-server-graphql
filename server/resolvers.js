@@ -5,7 +5,7 @@ const _ = require("lodash");
 
 const resolvers = {
   Query: {
-    providers: () => {
+    getProviders: () => {
         return getProviderList();
       }, 
       exactPatientSearch:(parent, args, context, info) =>{
