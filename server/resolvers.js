@@ -4,7 +4,7 @@ const _ = require("lodash");
 
 const resolvers = {
   Query: {
-    getProviders: () => {
+    getProviderList: () => {
         return ProviderList;
       }, 
       exactPatientSearch:(parent, args, context, info) =>{
@@ -16,7 +16,25 @@ const resolvers = {
         
         const firstName = args.firstName;
         const patient = patientList.filter(o => o.firstName.includes(firstName));
+
         return patient;
+      },
+      getProvidersWithArg: (parent, args, context, info) => {
+        const result = ProviderList;
+        if(args.filter != null)
+        {
+            const fieldName = args.filter;
+
+            return _.find(result, {fieldName} );
+        }
+
+        if(args.sortBy != null){
+            const fieldName = args.sortBy.field;
+            const order = args.sortBy.order;
+            return _.orderBy(result, [fieldName], [order]);
+        }
+
+        return result;
       }
   },
   Provider: {

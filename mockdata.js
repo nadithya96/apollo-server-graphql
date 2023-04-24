@@ -70,11 +70,18 @@ const patientList = [
 
 const ProviderList = [
     {
-        firstName: "Juliana",
+        firstName: "A",
         lastName: "Reynolds",
         npi: "65364563546",
         state: "ACTIVE",
-        }];
+        },
+        {
+                firstName: "B",
+                lastName: "Reynolds",
+                npi: "65364563546",
+                state: "ACTIVE",
+                }
+        ];
 
 
 

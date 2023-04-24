@@ -6,9 +6,10 @@ const typeDefs = gql`
 
 type Query {
      "Get providers array"
-     getProviders: [Provider!]!
+     getProviderList: [Provider!]!
      partialPatientSearch(firstName: String!): [Patient!]
      exactPatientSearch(firstName: String!): Patient
+     getProvidersWithArg(sortBy: SortBy, filter: String) : [Provider!]!
    }
 
    input PatientInputFilter {
@@ -49,6 +50,21 @@ enum State{
    INACTIVE
    ACTIVE
    DONE
+}
+
+enum Order {
+  asc
+  desc
+}
+
+input SortBy {
+  field: String!
+  order: Order!
+}
+
+input Filter {
+    field : String!
+    value : String!
 }
  
 `;
