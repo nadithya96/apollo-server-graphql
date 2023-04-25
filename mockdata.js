@@ -73,15 +73,21 @@ const ProviderList = [
         firstName: "A",
         lastName: "Reynolds",
         npi: "65364563546",
-        state: "ACTIVE",
-        },
-        {
-                firstName: "B",
-                lastName: "Reynolds",
-                npi: "65364563546",
-                state: "ACTIVE",
-                }
-        ];
+        state: "CA",
+    },
+    {
+        firstName: "B",
+        lastName: "Reynolds",
+        npi: "65364563546",
+        state: "NY",
+    },
+    {
+        firstName: "C",
+        lastName: "Reynolds",
+        npi: "65364563546",
+        state: "NY",
+    }
+];
 
 
 

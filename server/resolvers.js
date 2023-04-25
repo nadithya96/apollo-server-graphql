@@ -20,21 +20,27 @@ const resolvers = {
         return patient;
       },
       getProvidersWithArg: (parent, args, context, info) => {
-        const result = ProviderList;
+        let result = ProviderList;
         if(args.filter != null)
         {
-            const fieldName = args.filter;
-
-            return _.find(result, {fieldName} );
+            const field = args.filter.fieldFilter;
+            const value = args.filter.value;
+            result =  _.filter(result, {[field] : value});
         }
 
         if(args.sortBy != null){
             const fieldName = args.sortBy.field;
             const order = args.sortBy.order;
-            return _.orderBy(result, [fieldName], [order]);
+            result = _.orderBy(result, [fieldName], [order]);
         }
 
-        return result;
+        const count = result.length;
+
+        const finalList = new Object();
+        finalList.count = count;
+        finalList.providers = result;
+
+        return finalList;
       }
   },
   Provider: {

@@ -9,7 +9,7 @@ type Query {
      getProviderList: [Provider!]!
      partialPatientSearch(firstName: String!): [Patient!]
      exactPatientSearch(firstName: String!): Patient
-     getProvidersWithArg(sortBy: SortBy, filter: String) : [Provider!]!
+     getProvidersWithArg(sortBy: SortBy, filter: Filter) : ProviderList
    }
 
    input PatientInputFilter {
@@ -23,6 +23,11 @@ type Provider{
    npi: String!
    state: String!
    patients : [Patient]
+}
+
+type ProviderList{
+    count: Int
+    providers : [Provider]
 }
 
 "Patient can have more than one prescription prescribed by different providers"
@@ -63,7 +68,7 @@ input SortBy {
 }
 
 input Filter {
-    field : String!
+    fieldFilter : String!
     value : String!
 }
  
