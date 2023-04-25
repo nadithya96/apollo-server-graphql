@@ -31,7 +31,7 @@ const resolvers = {
       },
 
       getProvidersWithArg: (parent, args, context, info) => {
-              let result = ProviderList;
+              let result = getProviderList();
               if(args.filter != null)
               {
                   const field = args.filter.fieldFilter;

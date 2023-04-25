@@ -6,7 +6,7 @@ const typeDefs = gql`
 
 type Query {
      "Get providers array"
-     getProviderList: [Provider!]!
+     getProviders: [Provider!]!
      partialPatientSearch(firstName: String!): [Patient!]
      exactPatientSearch(firstName: String!): Patient
      getProvidersWithArg(sortBy: SortBy, filter: Filter) : ProviderList
