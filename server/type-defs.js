@@ -33,8 +33,8 @@ type ProviderList{
 "Patient can have more than one prescription prescribed by different providers"
    type Patient {
      id: ID!
-     lastName: String!
      firstName: String!
+     lastName: String!
      emailId: String!
      state: String!
      prescriptions: [Prescription]
